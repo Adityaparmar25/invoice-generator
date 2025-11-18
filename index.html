@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create professional invoices instantly with our easy-to-use Invoice Generator.">
+    <title>Invoice Generator - Create Invoices Instantly</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showLanding()">
+                <!-- <div class="logo-icon">I</div> -->
+                <span>Invoice Generator</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="showLanding()">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="landingPage">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Invoice Generator</h1>
+                <p class="hero-tagline">Create invoices instantly with ease</p>
+                <button class="cta-button" onclick="showGenerator()">Get Started</button>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="section-header">
+                <h2 class="section-title">Powerful Features</h2>
+                <p class="section-subtitle">Everything you need to create professional invoices quickly and efficiently</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Create Invoices Instantly</h3>
+                    <p>Generate professional invoices in seconds with our intuitive interface. No complex forms or unnecessary steps.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>Download as PDF</h3>
+                    <p>Export your invoices as high-quality PDF files ready to send to clients. Professional formatting guaranteed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <h3>Save Client Details</h3>
+                    <p>Store client information securely for quick access next time. Never type the same details twice.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Fast & Simple Interface</h3>
+                    <p>Clean, distraction-free design that lets you focus on what matters. Creating invoices has never been easier.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure & Private</h3>
+                    <p>Your data is protected with industry-standard security. We never share your information with third parties.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works" id="how-it-works">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Four simple steps to create your professional invoice</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-content">
+                        <div class="step-number">1</div>
+                        <h3>Enter Client Details</h3>
+                        <p>Start by adding your client's information including name, email, and address. You can save these details for future invoices to save time.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="visual-icon">👤</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-content">
+                        <div class="step-number">2</div>
+                        <h3>Add Items</h3>
+                        <p>List your products or services with descriptions, quantities, and prices. The total amount is calculated automatically as you type.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="visual-icon">📝</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-content">
+                        <div class="step-number">3</div>
+                        <h3>Generate Invoice</h3>
+                        <p>Review your invoice preview and make any adjustments. Add payment terms, due dates, and additional notes if needed.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="visual-icon">✨</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-content">
+                        <div class="step-number">4</div>
+                        <h3>Download PDF</h3>
+                        <p>Export your invoice as a professional PDF document ready to email or print. Your invoice is saved for future reference.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="visual-icon">📥</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="invoice-generator" id="invoiceGenerator">
+        <div class="generator-container">
+
+            <div class="form-section">
+                <h3>Your Business Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="businessName">Business Name *</label>
+                        <input type="text" id="businessName" placeholder="Your Company Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="businessEmail">Email *</label>
+                        <input type="email" id="businessEmail" placeholder="aditya@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="businessPhone">Phone</label>
+                        <input type="tel" id="businessPhone" placeholder="+91 99345xxxxx">
+                    </div>
+                    <div class="form-group">
+                        <label for="businessAddress">Address</label>
+                        <input type="text" id="businessAddress" placeholder="123 Business St, City, State">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Client Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="clientName">Client Name *</label>
+                        <input type="text" id="clientName" placeholder="Client Company Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clientEmail">Client Email</label>
+                        <input type="email" id="clientEmail" placeholder="client@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientPhone">Client Phone</label>
+                        <input type="tel" id="clientPhone" placeholder="+1 (555) 987-6543">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientAddress">Client Address</label>
+                        <input type="text" id="clientAddress" placeholder="456 Client Ave, City, State">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Invoice Details</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="invoiceNumber">Invoice Number *</label>
+                        <input type="text" id="invoiceNumber" placeholder="INV-001" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="invoiceDate">Invoice Date *</label>
+                        <input type="date" id="invoiceDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dueDate">Due Date</label>
+                        <input type="date" id="dueDate">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Items / Services</h3>
+                <div class="items-container" id="itemsContainer">
+                    <div class="item-row">
+                        <div class="form-group">
+                            <label>Description *</label>
+                            <input type="text" class="item-description" placeholder="Service or product description">
+                        </div>
+                        <div class="form-group">
+                            <label>Quantity *</label>
+                            <input type="number" class="item-quantity" value="1" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label>Rate (₹) *</label>
+                            <input type="number" class="item-rate" value="0" min="0" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label>Amount (₹)</label>
+                            <input type="number" class="item-amount" value="0" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <button class="btn btn-danger remove-item" onclick="removeItem(this)">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" onclick="addItem()">+ Add Item</button>
+            </div>
+
+            <div class="form-section">
+                <h3>Additional Notes</h3>
+                <div class="form-group">
+                    <label for="notes">Notes / Payment Terms</label>
+                    <textarea id="notes" placeholder="Payment terms, thank you message, or any additional information..."></textarea>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="generateInvoice()">Generate Invoice</button>
+                <button class="btn btn-secondary" onclick="resetForm()">Reset Form</button>
+            </div>
+
+            <div id="invoicePreview" class="hidden">
+                <div class="invoice-preview" id="invoiceContent">
+                    <!-- Invoice content will be generated here -->
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-success" onclick="downloadPDF()">Download PDF</button>
+                    <button class="btn btn-primary" onclick="printInvoice()">Print Invoice</button>
+                    <button class="btn btn-secondary" onclick="createNewInvoice()">Create New Invoice</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section" id="about">
+                <h3>About Invoice Generator</h3>
+                <p>We help freelancers, small businesses, and entrepreneurs create professional invoices quickly and easily. Our mission is to simplify billing so you can focus on growing your business.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#" onclick="showGenerator()">Create Invoice</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-section" id="contact">
+                <h3>Contact Us</h3>
+                <p>Email: support@gmail.com</p>
+                <p>Phone: +91 99345xxxxx</p>
+                <p>Address: 123 Business St, Suite 100<br>San Francisco, CA 94102</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook">f</a>
+                    <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                    <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Invoice Generator. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                this.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+        }
+
+        // Close mobile menu when clicking on a link
+        const navLinkItems = document.querySelectorAll('.nav-links a');
+        navLinkItems.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.textContent = '☰';
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.length > 1) {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const offsetTop = target.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Set default date
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('invoiceDate').value = today;
+
+        // Calculate due date (30 days from today)
+        const dueDate = new Date();
+        dueDate.setDate(dueDate.getDate() + 30);
+        document.getElementById('dueDate').value = dueDate.toISOString().split('T')[0];
+
+        // Auto-generate invoice number
+        document.getElementById('invoiceNumber').value = 'INV-' + Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+
+        // Show/Hide sections
+        function showGenerator() {
+            document.getElementById('landingPage').style.display = 'none';
+            document.getElementById('invoiceGenerator').classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showLanding() {
+            document.getElementById('landingPage').style.display = 'block';
+            document.getElementById('invoiceGenerator').classList.remove('active');
+            document.getElementById('invoicePreview').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Add item row
+        function addItem() {
+            const container = document.getElementById('itemsContainer');
+            const newRow = document.createElement('div');
+            newRow.className = 'item-row';
+            newRow.innerHTML = `
+                <div class="form-group">
+                    <label>Description *</label>
+                    <input type="text" class="item-description" placeholder="Service or product description">
+                </div>
+                <div class="form-group">
+                    <label>Quantity *</label>
+                    <input type="number" class="item-quantity" value="1" min="1">
+                </div>
+                <div class="form-group">
+                    <label>Rate (₹) *</label>
+                    <input type="number" class="item-rate" value="0" min="0" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label>Amount (₹)</label>
+                    <input type="number" class="item-amount" value="0" readonly>
+                </div>
+                <div class="form-group">
+                    <label>&nbsp;</label>
+                    <button class="btn btn-danger remove-item" onclick="removeItem(this)">Remove</button>
+                </div>
+            `;
+            container.appendChild(newRow);
+            attachItemCalculators();
+        }
+
+        // Remove item row
+        function removeItem(button) {
+            const container = document.getElementById('itemsContainer');
+            if (container.children.length > 1) {
+                button.closest('.item-row').remove();
+            } else {
+                alert('You must have at least one item.');
+            }
+        }
+
+        // Calculate item amount
+        function attachItemCalculators() {
+            const rows = document.querySelectorAll('.item-row');
+            rows.forEach(row => {
+                const quantity = row.querySelector('.item-quantity');
+                const rate = row.querySelector('.item-rate');
+                const amount = row.querySelector('.item-amount');
+                
+                function calculate() {
+                    const qty = parseFloat(quantity.value) || 0;
+                    const rt = parseFloat(rate.value) || 0;
+                    amount.value = (qty * rt).toFixed(2);
+                }
+                
+                quantity.removeEventListener('input', calculate);
+                rate.removeEventListener('input', calculate);
+                quantity.addEventListener('input', calculate);
+                rate.addEventListener('input', calculate);
+            });
+        }
+
+        attachItemCalculators();
+
+        // Generate Invoice
+        function generateInvoice() {
+            // Validate required fields
+            const businessName = document.getElementById('businessName').value;
+            const clientName = document.getElementById('clientName').value;
+            const invoiceNumber = document.getElementById('invoiceNumber').value;
+            
+            if (!businessName || !clientName || !invoiceNumber) {
+                alert('Please fill in all required fields (marked with *)');
+                return;
+            }
+
+            // Get all items
+            const items = [];
+            const rows = document.querySelectorAll('.item-row');
+            let hasValidItem = false;
+            
+            rows.forEach(row => {
+                const description = row.querySelector('.item-description').value;
+                const quantity = parseFloat(row.querySelector('.item-quantity').value) || 0;
+                const rate = parseFloat(row.querySelector('.item-rate').value) || 0;
+                const amount = quantity * rate;
+                
+                if (description && quantity > 0 && rate > 0) {
+                    items.push({ description, quantity, rate, amount });
+                    hasValidItem = true;
+                }
+            });
+
+            if (!hasValidItem) {
+                alert('Please add at least one valid item with description, quantity, and rate.');
+                return;
+            }
+
+            // Calculate totals
+            const subtotal = items.reduce((sum, item) => sum + item.amount, 0);
+            const tax = subtotal * 0.1; // 10% tax
+            const total = subtotal + tax;
+
+            // Generate invoice HTML
+            const invoiceHTML = `
+                <div class="invoice-header">
+                    <div>
+                        <div class="invoice-logo">${businessName}</div>
+                        <p>${document.getElementById('businessEmail').value}</p>
+                        <p>${document.getElementById('businessPhone').value}</p>
+                        <p>${document.getElementById('businessAddress').value}</p>
+                    </div>
+                    <div class="invoice-details">
+                        <div class="invoice-number">Invoice #${invoiceNumber}</div>
+                        <p><strong>Date:</strong> ${new Date(document.getElementById('invoiceDate').value).toLocaleDateString()}</p>
+                        <p><strong>Due:</strong> ${new Date(document.getElementById('dueDate').value).toLocaleDateString()}</p>
+                    </div>
+                </div>
+
+                <div class="invoice-parties">
+                    <div class="party-section">
+                        <h4>Bill To:</h4>
+                        <p><strong>${clientName}</strong></p>
+                        <p>${document.getElementById('clientEmail').value}</p>
+                        <p>${document.getElementById('clientPhone').value}</p>
+                        <p>${document.getElementById('clientAddress').value}</p>
+                    </div>
+                </div>
+
+                <table class="invoice-table">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Rate</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${items.map(item => `
+                            <tr>
+                                <td>${item.description}</td>
+                                <td>${item.quantity}</td>
+                                <td>₹${item.rate.toFixed(2)}</td>
+                                <td>₹${item.amount.toFixed(2)}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+
+                <div class="invoice-total">
+                    <div class="total-row">
+                        <span>Subtotal:</span>
+                        <span>₹${subtotal.toFixed(2)}</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Tax (10%):</span>
+                        <span>₹${tax.toFixed(2)}</span>
+                    </div>
+                    <div class="total-row grand-total">
+                        <span>Total:</span>
+                        <span>₹${total.toFixed(2)}</span>
+                    </div>
+                </div>
+
+                ${document.getElementById('notes').value ? `
+                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e5e7eb;">
+                        <h4 style="margin-bottom: 0.5rem;">Notes:</h4>
+                        <p style="color: #6b7280;">${document.getElementById('notes').value}</p>
+                    </div>
+                ` : ''}
+            `;
+
+            document.getElementById('invoiceContent').innerHTML = invoiceHTML;
+            document.getElementById('invoicePreview').classList.remove('hidden');
+            
+            // Scroll to preview
+            document.getElementById('invoicePreview').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Print Invoice
+        function printInvoice() {
+            window.print();
+        }
+
+        // Download PDF (using browser print to PDF)
+        function downloadPDF() {
+            alert('To download as PDF:\n\n1. Click OK\n2. When the print dialog opens, select "Save as PDF" or "Microsoft Print to PDF"\n3. Choose your save location\n\nNote: This uses your browser\'s built-in PDF functionality.');
+            window.print();
+        }
+
+        // Create New Invoice
+        function createNewInvoice() {
+            if (confirm('Are you sure you want to create a new invoice? Current data will be cleared.')) {
+                resetForm();
+                document.getElementById('invoicePreview').classList.add('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Reset Form
+        function resetForm() {
+            document.getElementById('businessName').value = '';
+            document.getElementById('businessEmail').value = '';
+            document.getElementById('businessPhone').value = '';
+            document.getElementById('businessAddress').value = '';
+            document.getElementById('clientName').value = '';
+            document.getElementById('clientEmail').value = '';
+            document.getElementById('clientPhone').value = '';
+            document.getElementById('clientAddress').value = '';
+            document.getElementById('notes').value = '';
+            
+            // Reset dates and invoice number
+            document.getElementById('invoiceDate').value = new Date().toISOString().split('T')[0];
+            const dueDate = new Date();
+            dueDate.setDate(dueDate.getDate() + 30);
+            document.getElementById('dueDate').value = dueDate.toISOString().split('T')[0];
+            document.getElementById('invoiceNumber').value = 'INV-' + Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+            
+            // Reset items
+            const container = document.getElementById('itemsContainer');
+            container.innerHTML = `
+                <div class="item-row">
+                    <div class="form-group">
+                        <label>Description *</label>
+                        <input type="text" class="item-description" placeholder="Service or product description">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity *</label>
+                        <input type="number" class="item-quantity" value="1" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Rate (₹) *</label>
+                        <input type="number" class="item-rate" value="0" min="0" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Amount (₹)</label>
+                        <input type="number" class="item-amount" value="0" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <button class="btn btn-danger remove-item" onclick="removeItem(this)">Remove</button>
+                    </div>
+                </div>
+            `;
+            
+            attachItemCalculators();
+            document.getElementById('invoicePreview').classList.add('hidden');
+        }
+
+        // Initialize
+        console.log('%c🚀 Invoice Generator Ready!', 'font-size: 20px; color: #2563eb; font-weight: bold;');
+    </script>
+</body>
+</html>
